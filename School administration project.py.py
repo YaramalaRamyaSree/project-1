@@ -1,6 +1,6 @@
 import csv
 def write_into_file(info):
- with open('student_info.csv','a',newline='') as csv_file:
+ with open('students_info.csv','a',newline='') as csv_file:
     writer=csv.writer(csv_file)
     if csv_file.tell()==0:
         writer.writerow(["rollno","name","contact no","college name","emailid"])
@@ -9,18 +9,22 @@ def write_into_file(info):
 condition=True
 while(condition):
         student_info=input("enter rollno,name,contactno,collegename,emailid :")
+        student_num=1
         student_info_list=student_info.split(' ')
         print("\nrollno: {}\nname: {}\ncontactno:{}\ncollegename: {}\nemailid: {}".format(student_info_list[0],student_info_list[1],student_info_list[2],student_info_list[3],student_info_list[4]))
         check=input("type ( yes or no )if given values are entered correctly:")
-        if check=='yes':
+        if check=='yes'or check=='YES':
             write_into_file(student_info_list)
             iswant=input("type (yes or no) to give details of another student:")
-            if iswant=='yes':
+            if iswant=='yes'or iswant=='YES':
                 condition=True
-            elif iswant=='no':
+                student_num+=1
+            elif iswant=='no'or iswant=='NO':
                 condition=False
-        elif check=='no':
+        elif check=='no'or check=='NO':
             print("re enter values")
+            
+
            
   OUTPUT:
 rollno	name	contact no	college name	emailid
